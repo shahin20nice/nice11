@@ -1,15 +1,15 @@
 local URL = require "socket.url"
 local https = require "ssl.https"
 local serpent = require "serpent"
-local json = (loadfile "/home/username/inline/data/JSON.lua")()
-local token = '254778917:AAEGVrvHjYc-wkwrMuF0hekpGHpmPr3htog' --token
+local json = (loadfile "/home/bot5/inline/data/JSON.lua")()
+local token = '340925723:AAEesBDMYePDq73SnWvX5v7rZfwyUhaA5C0' --token
 local url = 'https://api.telegram.org/bot' .. token
 local offset = 0
 local redis = require('redis')
 local redis = redis.connect('127.0.0.1', 6379)
-local SUDO = 304107094
+local SUDO = 333677042
 function is_mod(chat,user)
-sudo = {304107094}
+sudo = {333677042}
   local var = false
   for v,_user in pairs(sudo) do
     if _user == user then
@@ -159,7 +159,7 @@ local function run()
           offset = msg.update_id + 1
           if msg.inline_query then
             local q = msg.inline_query
-						if q.from.id == 352689853 or q.from.id == 304107094 then
+						if q.from.id == 338741120 or q.from.id == 333677042 then
             if q.query:match('%d+') then
               local chat = '-'..q.query:match('%d+')
 							local function is_lock(chat,value)
@@ -173,11 +173,11 @@ local hash = SUDO..'settings:'..chat..':'..value
               local keyboard = {}
 							keyboard.inline_keyboard = {
 								{
-                 {text = 'تنظیمات گروه', callback_data = 'groupsettings:'..chat} --,{text = 'واحد فروش', callback_data = 'aboute:'..chat}
+                 {text = '⚙🛠تنظیمات گروه🛠⚙', callback_data = 'groupsettings:'..chat} --,{text = 'واحد فروش', callback_data = 'aboute:'..chat}
                 },{
-				 {text = 'پشتیبانی', callback_data = 'supportbot:'..chat},{text = 'تبلیغات شما', callback_data = 'youradds:'..chat}
+				 {text = '🚀پشتیبانی🚀', callback_data = 'supportbot:'..chat},{text = '💸تبلیغات💸', callback_data = 'youradds:'..chat}
 				  },{
-				 {text = 'اطلاعات گروه', callback_data = 'groupinfo:'..chat},{text = 'راهنما', callback_data = 'helpbot:'..chat}
+				 {text = '📉🗃اصلاعات گروه🗃📈', callback_data = 'groupinfo:'..chat},{text = '📋راهنما📋', callback_data = 'helpbot:'..chat}
 				}
 							}
             answer(q.id,'settings','Group settings',chat,'به بخش اصلی خوش آمدید.\nاز منوی زیر انتخاب کنید:',keyboard)
@@ -189,7 +189,7 @@ local hash = SUDO..'settings:'..chat..':'..value
 						local chat = ('-'..q.data:match('(%d+)') or '')
 						if is_mod(chat,q.from.id) then
              if q.data:match('_') and not (q.data:match('next_page') or q.data:match('left_page')) then
-                Canswer(q.id,">برای مشاهده راهنمای بیشتر این بخش عبارت\n/help\nرا ارسال کنید\n>تیم پشتیبانی:[@BanG_Pv_Bot]\n>کانال پشتیبانی:[@BanG_TeaM]\n> فروش :[@Bibak_BG]",true)
+                Canswer(q.id,">برای مشاهده راهنمای بیشتر این بخش عبارت\n/help\nرا ارسال کنید\n>تیم پشتیبانی:[@Nice20Admin]\n>کانال پشتیبانی:[@Nice20Team]\n> فروش :[@Nice20Admin]",true)
 					elseif q.data:match('lock') then
 							local lock = q.data:match('lock (.*)')
 							TIME_MAX = (redis:get(SUDO..'floodtime'..chat) or 3)
@@ -291,11 +291,11 @@ local hash = SUDO..'settings:'..chat..':'..value
               local keyboard = {}
 							keyboard.inline_keyboard = {
 								{
-                 {text = 'تنظیمات گروه', callback_data = 'groupsettings:'..chat} --,{text = 'واحد فروش', callback_data = 'aboute:'..chat}
+                 {text = '⚙🛠تنظیمات گروه🛠⚙', callback_data = 'groupsettings:'..chat} --,{text = 'واحد فروش', callback_data = 'aboute:'..chat}
                 },{
-				 {text = 'پشتیبانی', callback_data = 'supportbot:'..chat},{text = 'تبلیغات شما', callback_data = 'youradds:'..chat}
+				 {text = '🚀پشتیبانی🚀', callback_data = 'supportbot:'..chat},{text = '💸تبلیغات💸', callback_data = 'youradds:'..chat}
 				  },{
-				 {text = 'اطلاعات گروه', callback_data = 'groupinfo:'..chat},{text = 'راهنما', callback_data = 'helpbot:'..chat}
+				 {text = '📉🗃اصلاعات گروه🗃📈', callback_data = 'groupinfo:'..chat},{text = '📋راهنما📋', callback_data = 'helpbot:'..chat}
 				}
 							}
             edit(q.inline_message_id,'`به بخش اصلی خوش آمدید.`\n`از منوی زیر انتخاب کنید:`',keyboard)
@@ -312,7 +312,7 @@ local hash = SUDO..'settings:'..chat..':'..value
 				 },{
 				 {text = 'سوالات متداول', callback_data = 'soalatmotadavel:'..chat}
                 },{
-                   {text = 'بازگشت به منوی اصلی ◀️', callback_data = 'firstmenu:'..chat}
+                   {text = '↩️🌟منوی اصل🌟↩️', callback_data = 'firstmenu:'..chat}
 				}
 							}
               edit(q.inline_message_id,'به بخش پشتیبانی خوش آمدید.\nاز منوی زیر انتخاب کنید:',keyboard)
@@ -323,10 +323,10 @@ local hash = SUDO..'settings:'..chat..':'..value
 		local keyboard = {}
 							keyboard.inline_keyboard = {
 								{
-                   {text = 'بازگشت به منوی اصلی ◀️', callback_data = 'firstmenu:'..chat},{text = 'صفحه قبلی ◀️', callback_data = 'supportbot:'..chat}
+                   {text = '↩️🌟منوی اصل🌟↩️', callback_data = 'firstmenu:'..chat},{text = '⏪🔙صفحه قبلی🔙⏪', callback_data = 'supportbot:'..chat}
 				}
 							}
-              edit(q.inline_message_id,'`به بخش ارتباط با بخش فنی خوش آمدید.`\n`در صورت وجود مشکل در ربات به ما پیغام ارسال کنید:`\n[ارسال پیغام](https://telegram.me/BanG_Pv_Bot)',keyboard)
+              edit(q.inline_message_id,'`به بخش ارتباط با بخش فنی خوش آمدید.`\n`در صورت وجود مشکل در ربات به ما پیغام ارسال کنید:`\n[ارسال پیغام](https://telegram.me/Nicesup_bot)',keyboard)
             end
 							------------------------------------------------------------------------
 							if q.data:match('reportproblem') then
@@ -334,10 +334,10 @@ local hash = SUDO..'settings:'..chat..':'..value
 		local keyboard = {}
 							keyboard.inline_keyboard = {
 								{
-                   {text = 'بازگشت به منوی اصلی ◀️', callback_data = 'firstmenu:'..chat},{text = 'صفحه قبلی ◀️', callback_data = 'supportbot:'..chat}
+                   {text = '↩️🌟منوی اصل🌟↩️', callback_data = 'firstmenu:'..chat},{text = '⏪🔙صفحه قبلی🔙⏪', callback_data = 'supportbot:'..chat}
 				}
 							}
-              edit(q.inline_message_id,'`به بخش گزارش مشکل خوش آمدید.`\n`در صورت وجود مشکل در کارکرد سرویس شما به ما اطلاع دهید:`\n[گزارش مشکل](https://telegram.me/BanG_Pv_Bot)',keyboard)
+              edit(q.inline_message_id,'`به بخش گزارش مشکل خوش آمدید.`\n`در صورت وجود مشکل در کارکرد سرویس شما به ما اطلاع دهید:`\n[گزارش مشکل](https://telegram.me/Nicesup_bot)',keyboard)
             end
 							------------------------------------------------------------------------
 							if q.data:match('fahedsale') then
@@ -351,7 +351,7 @@ local hash = SUDO..'settings:'..chat..':'..value
 				{text = 'گزارشات مالی', callback_data = 'reportmony:'..chat}
 
                 },{
-                   {text = 'بازگشت به منوی اصلی ◀️', callback_data = 'firstmenu:'..chat},{text = 'صفحه قبلی ◀️', callback_data = 'supportbot:'..chat}
+                   {text = '↩️🌟منوی اصل🌟↩️', callback_data = 'firstmenu:'..chat},{text = '⏪🔙صفحه قبلی🔙⏪', callback_data = 'supportbot:'..chat}
 				}
 							}
               edit(q.inline_message_id,'`به بخش خرید گروه،تمدید سرویس،گزارش مالی خوش آمدید.`\n`از منوی زیر انتخاب کنید:`',keyboard)
@@ -362,7 +362,7 @@ local hash = SUDO..'settings:'..chat..':'..value
 		local keyboard = {}
 							keyboard.inline_keyboard = {
 								{
-                   {text = 'بازگشت به منوی اصلی ◀️', callback_data = 'firstmenu:'..chat},{text = 'صفحه قبلی ◀️', callback_data = 'fahedsale:'..chat}
+                   {text = '↩️🌟منوی اصل🌟↩️', callback_data = 'firstmenu:'..chat},{text = '⏪🔙صفحه قبلی🔙⏪', callback_data = 'fahedsale:'..chat}
 				}
 							}
               edit(q.inline_message_id,'`طرح انتخابی [شما دائمی/مادام العمر(نامحدود روز)] میباشد و نیاز به تمدید طرح ندارید!`',keyboard)
@@ -373,7 +373,7 @@ local hash = SUDO..'settings:'..chat..':'..value
 		local keyboard = {}
 							keyboard.inline_keyboard = {
 								{
-                   {text = 'بازگشت به منوی اصلی ◀️', callback_data = 'firstmenu:'..chat},{text = 'صفحه قبلی ◀️', callback_data = 'fahedsale:'..chat}
+                   {text = '↩️🌟منوی اصل🌟↩️', callback_data = 'firstmenu:'..chat},{text = '⏪🔙صفحه قبلی🔙⏪', callback_data = 'fahedsale:'..chat}
 				}
 							}
               edit(q.inline_message_id,'`با عرض پوزش، متاسفانه این سیستم تا اطلاع ثانوی غیرفعال میباشد.`',keyboard)
@@ -384,10 +384,10 @@ local hash = SUDO..'settings:'..chat..':'..value
 		local keyboard = {}
 							keyboard.inline_keyboard = {
 								{
-                   {text = 'بازگشت به منوی اصلی ◀️', callback_data = 'firstmenu:'..chat},{text = 'صفحه قبلی ◀️', callback_data = 'supportbot:'..chat}
+                   {text = '↩️🌟منوی اصل🌟↩️', callback_data = 'firstmenu:'..chat},{text = '⏪🔙صفحه قبلی🔙⏪', callback_data = 'supportbot:'..chat}
 				}
 							}
-              edit(q.inline_message_id,'`به بخش انتقادات و پیشنهادات خوش آمدید.`\n`هرگونه انتقاد،پیشنهاد را با در میان بگذارید:`\n[ارسال انتقاد،پیشنهاد](https://telegram.me/BanG_Pv_Bot)',keyboard)
+              edit(q.inline_message_id,'`به بخش انتقادات و پیشنهادات خوش آمدید.`\n`هرگونه انتقاد،پیشنهاد را با در میان بگذارید:`\n[ارسال انتقاد،پیشنهاد](https://telegram.me/Nicesup_bot)',keyboard)
             end
 							------------------------------------------------------------------------
 							if q.data:match('soalatmotadavel') then
@@ -395,7 +395,7 @@ local hash = SUDO..'settings:'..chat..':'..value
 		local keyboard = {}
 							keyboard.inline_keyboard = {
 								{
-                   {text = 'بازگشت به منوی اصلی ◀️', callback_data = 'firstmenu:'..chat},{text = 'صفحه قبلی ◀️', callback_data = 'supportbot:'..chat}
+                   {text = '↩️🌟منوی اصل🌟↩️', callback_data = 'firstmenu:'..chat},{text = '⏪🔙صفحه قبلی🔙⏪', callback_data = 'supportbot:'..chat}
 				}
 							}
               edit(q.inline_message_id,'`با عرض پوزش، متاسفانه این سیستم تا اطلاع ثانوی غیرفعال میباشد.`',keyboard)
@@ -406,7 +406,7 @@ local hash = SUDO..'settings:'..chat..':'..value
 		local keyboard = {}
 							keyboard.inline_keyboard = {
 								{
-                   {text = 'بازگشت به منوی اصلی ◀️', callback_data = 'firstmenu:'..chat}
+                   {text = '↩️🌟منوی اصل🌟↩️', callback_data = 'firstmenu:'..chat}
 				}
 							}
               edit(q.inline_message_id,'با عرض پوزش، متاسفانه این سیستم تا اطلاع ثانوی غیرفعال میباشد.',keyboard)
@@ -417,7 +417,7 @@ local hash = SUDO..'settings:'..chat..':'..value
 		local keyboard = {}
 							keyboard.inline_keyboard = {
 								{
-                   {text = 'بازگشت به منوی اصلی ◀️', callback_data = 'firstmenu:'..chat}
+                   {text = '↩️🌟منوی اصل🌟↩️', callback_data = 'firstmenu:'..chat}
 				}
 							}
               edit(q.inline_message_id,'با عرض پوزش، متاسفانه این سیستم تا اطلاع ثانوی غیرفعال میباشد.',keyboard)
@@ -432,7 +432,7 @@ local hash = SUDO..'settings:'..chat..':'..value
                 },{
 				 {text = 'راهنمای صوتی', callback_data = 'voicehelp:'..chat},{text = 'راهنمای تصویری', callback_data = 'videohelp:'..chat}
                 },{
-                   {text = 'بازگشت به منوی اصلی ◀️', callback_data = 'firstmenu:'..chat}
+                   {text = '↩️🌟منوی اصل🌟↩️', callback_data = 'firstmenu:'..chat}
 				}
 							}
               edit(q.inline_message_id,'`به بخش راهنما خوش آمدید.`\n`از منوی زیر انتخاب کنید:`',keyboard)
@@ -443,10 +443,10 @@ local hash = SUDO..'settings:'..chat..':'..value
 		local keyboard = {}
 							keyboard.inline_keyboard = {
 								{
-                   {text = 'بازگشت به منوی اصلی ◀️', callback_data = 'firstmenu:'..chat},{text = 'صفحه قبلی ◀️', callback_data = 'helpbot:'..chat}
+                   {text = '↩️🌟منوی اصل🌟↩️', callback_data = 'firstmenu:'..chat},{text = '⏪🔙صفحه قبلی🔙⏪', callback_data = 'helpbot:'..chat}
 				}
 							}
-              edit(q.inline_message_id,'>[راهنمای مالکین گروه(اصلی-فرعی)](https://telegram.me/bang_team)\n*[/#!]options* --دریافت تنظیمات گروه به صورت اینلاین\n*[/#!]setrules text* --تنظیم قوانین گروه\n*[/#!]modset* @username|reply|user-id --تنظیم مالک فرعی جدید برای گروه با یوزرنیم|ریپلی|شناسه -فرد\n*[/#!]moddem* @username|reply|user-id --حذف مالک فرعی از گروه با یوزرنیم|ریپلی|شناسه -فرد\n*[/#!]ownerlist* --دریافت لیست مدیران اصلی\n*[/#!]managers* --دریافت لیست مدیران فرعی گروه\n*[/#!]setlink link* {لینک-گروه} --تنظیم لینک گروه\n*[/#!]link* دریافت لینک گروه\n*[/#!]kick* @username|reply|user-id اخراج کاربر با ریپلی|یوزرنیم|شناسه\n*_______________________*\n>[راهنمای بخش حذف ها](https://telegram.me/bang_team)\n*[/#!]delete managers* {حذف تمامی مدیران فرعی تنظیم شده برای گروه}\n*[/#!]delete welcome* {حذف پیغام خوش آمدگویی تنظیم شده برای گروه}\n*[/#!]delete bots* {حذف تمامی ربات های موجود در ابرگروه}\n*[/#!]delete silentlist* {حذف لیست سکوت کاربران}\n*[/#!]delete filterlist* {حذف لیست کلمات فیلتر شده در گروه}\n*_______________________*\n>[راهنمای بخش خوش آمدگویی](https://telegram.me/bang_team)\n*[/#!]welcome enable* --(فعال کردن پیغام خوش آمدگویی در گروه)\n*[/#!]welcome disable* --(غیرفعال کردن پیغام خوش آمدگویی در گروه)\n*[/#!]setwelcome text* --(تنظیم پیغام خوش آمدگویی جدید در گروه)\n*_______________________*\n>[راهنمای بخش فیلترگروه](https://telegram.me/bang_team)\n*[/#!]mutechat* --فعال کردن فیلتر تمامی گفتگو ها\n*[/#!]unmutechat* --غیرفعال کردن فیلتر تمامی گفتگو ها\n*[/#!]mutechat number(h|m|s)* --فیلتر تمامی گفتگو ها بر حسب زمان[ساعت|دقیقه|ثانیه]\n*_______________________*\n>[راهنمای دستورات حالت سکوت کاربران](https://telegram.me/bang_team)\n*[/#!]silentuser* @username|reply|user-id --افزودن کاربر به لیست سکوت با یوزرنیم|ریپلی|شناسه -فرد\n*[/#!]unsilentuser* @username|reply|user-id --افزودن کاربر به لیست سکوت با یوزرنیم|ریپلی|شناسه -فرد\n*[/#!]silentlist* --دریافت لیست کاربران حالت سکوت\n*_______________________*\n>[راهنمای بخش فیلتر-کلمات](https://telegram.me/bang_team)\n*[/#!]filter word --افزودن عبارت جدید به لیست کلمات فیلتر شده\n[/#!]unfilter word* --حذف عبارت جدید از لیست کلمات فیلتر شده\n*[/#!]filterlist* --دریافت لیست کلمات فیلتر شده\n*_______________________*\n>[راهنمای بخش تنظیم پیغام مکرر](https://telegram.me/bang_team)\n*[/#!]floodmax number* --تنظیم حساسیت نسبت به ارسال پیام مکرر\n*[/#!]floodtime* --تنظیم حساسیت نسبت به ارسال پیام مکرر برحسب زمان',keyboard)
+              edit(q.inline_message_id,'>[راهنمای مالکین گروه(اصلی-فرعی)](https://telegram.me/Nice20Team)\n*[/#!]options* --دریافت تنظیمات گروه به صورت اینلاین\n*[/#!]setrules text* --تنظیم قوانین گروه\n*[/#!]modset* @username|reply|user-id --تنظیم مالک فرعی جدید برای گروه با یوزرنیم|ریپلی|شناسه -فرد\n*[/#!]moddem* @username|reply|user-id --حذف مالک فرعی از گروه با یوزرنیم|ریپلی|شناسه -فرد\n*[/#!]ownerlist* --دریافت لیست مدیران اصلی\n*[/#!]managers* --دریافت لیست مدیران فرعی گروه\n*[/#!]setlink link* {لینک-گروه} --تنظیم لینک گروه\n*[/#!]link* دریافت لینک گروه\n*[/#!]kick* @username|reply|user-id اخراج کاربر با ریپلی|یوزرنیم|شناسه\n*_______________________*\n>[راهنمای بخش حذف ها](https://telegram.me/Nice20Team)\n*[/#!]delete managers* {حذف تمامی مدیران فرعی تنظیم شده برای گروه}\n*[/#!]delete welcome* {حذف پیغام خوش آمدگویی تنظیم شده برای گروه}\n*[/#!]delete bots* {حذف تمامی ربات های موجود در ابرگروه}\n*[/#!]delete silentlist* {حذف لیست سکوت کاربران}\n*[/#!]delete filterlist* {حذف لیست کلمات فیلتر شده در گروه}\n*_______________________*\n>[راهنمای بخش خوش آمدگویی](https://telegram.me/Nice20Team)\n*[/#!]welcome enable* --(فعال کردن پیغام خوش آمدگویی در گروه)\n*[/#!]welcome disable* --(غیرفعال کردن پیغام خوش آمدگویی در گروه)\n*[/#!]setwelcome text* --(تنظیم پیغام خوش آمدگویی جدید در گروه)\n*_______________________*\n>[راهنمای بخش فیلترگروه](https://telegram.me/Nice20Team)\n*[/#!]mutechat* --فعال کردن فیلتر تمامی گفتگو ها\n*[/#!]unmutechat* --غیرفعال کردن فیلتر تمامی گفتگو ها\n*[/#!]mutechat number(h|m|s)* --فیلتر تمامی گفتگو ها بر حسب زمان[ساعت|دقیقه|ثانیه]\n*_______________________*\n>[راهنمای دستورات حالت سکوت کاربران](https://telegram.me/Nice20Team)\n*[/#!]silentuser* @username|reply|user-id --افزودن کاربر به لیست سکوت با یوزرنیم|ریپلی|شناسه -فرد\n*[/#!]unsilentuser* @username|reply|user-id --افزودن کاربر به لیست سکوت با یوزرنیم|ریپلی|شناسه -فرد\n*[/#!]silentlist* --دریافت لیست کاربران حالت سکوت\n*_______________________*\n>[راهنمای بخش فیلتر-کلمات](https://telegram.me/Nice20Team)\n*[/#!]filter word --افزودن عبارت جدید به لیست کلمات فیلتر شده\n[/#!]unfilter word* --حذف عبارت جدید از لیست کلمات فیلتر شده\n*[/#!]filterlist* --دریافت لیست کلمات فیلتر شده\n*_______________________*\n>[راهنمای بخش تنظیم پیغام مکرر](https://telegram.me/Nice20Team)\n*[/#!]floodmax number* --تنظیم حساسیت نسبت به ارسال پیام مکرر\n*[/#!]floodtime* --تنظیم حساسیت نسبت به ارسال پیام مکرر برحسب زمان',keyboard)
             end
 							------------------------------------------------------------------------
 							if q.data:match('videohelp') then
@@ -454,7 +454,7 @@ local hash = SUDO..'settings:'..chat..':'..value
 		local keyboard = {}
 							keyboard.inline_keyboard = {
 								{
-                   {text = 'بازگشت به منوی اصلی ◀️', callback_data = 'firstmenu:'..chat},{text = 'صفحه قبلی ◀️', callback_data = 'helpbot:'..chat}
+                   {text = '↩️🌟منوی اصل🌟↩️', callback_data = 'firstmenu:'..chat},{text = '⏪🔙صفحه قبلی🔙⏪', callback_data = 'helpbot:'..chat}
 				}
 							}
               edit(q.inline_message_id,'`با عرض پوزش،در حال حاضر سیستم انتخابی غیرفعال میباشد.`',keyboard)
@@ -465,7 +465,7 @@ local hash = SUDO..'settings:'..chat..':'..value
 		local keyboard = {}
 							keyboard.inline_keyboard = {
 								{
-                   {text = 'بازگشت به منوی اصلی ◀️', callback_data = 'firstmenu:'..chat},{text = 'صفحه قبلی ◀️', callback_data = 'helpbot:'..chat}
+                   {text = '↩️🌟منوی اصل🌟↩️', callback_data = 'firstmenu:'..chat},{text = '⏪🔙صفحه قبلی🔙⏪', callback_data = 'helpbot:'..chat}
 				}
 							}
               edit(q.inline_message_id,'`با عرض پوزش،در حال حاضر سیستم انتخابی غیرفعال میباشد.`',keyboard)
@@ -485,7 +485,7 @@ local hash = SUDO..'settings:'..chat..':'..value
 				  },{
 				 {text = 'کاربران حالت سکوت', callback_data = 'silentlistusers:'..chat}
                 },{
-                   {text = 'بازگشت به منوی اصلی ◀️', callback_data = 'firstmenu:'..chat}
+                   {text = '↩️🌟منوی اصل🌟↩️', callback_data = 'firstmenu:'..chat}
 				}
 							}
               edit(q.inline_message_id,'`به بخش اطلاعات گروه خوش آمدید.`\n`از منوی زیر انتخاب کنید:`',keyboard)
@@ -507,7 +507,7 @@ local hash = SUDO..'settings:'..chat..':'..value
 								{
                    {text = 'مشاهده مدیران', callback_data = 'showmanagers:'..chat},{text = 'حذف لیست مدیران', callback_data = 'removemanagers:'..chat}
 				   },{
-                   {text = 'بازگشت به منوی اصلی ◀️', callback_data = 'firstmenu:'..chat},{text = 'صفحه قبلی ◀️', callback_data = 'groupinfo:'..chat}
+                   {text = '↩️🌟منوی اصل🌟↩️', callback_data = 'firstmenu:'..chat},{text = '⏪🔙صفحه قبلی🔙⏪', callback_data = 'groupinfo:'..chat}
 				}
 							}
               edit(q.inline_message_id, ''..t..'',keyboard)
@@ -518,7 +518,7 @@ local hash = SUDO..'settings:'..chat..':'..value
 		local keyboard = {}
 							keyboard.inline_keyboard = {
 								{
-                   {text = 'بازگشت به منوی اصلی ◀️', callback_data = 'firstmenu:'..chat},{text = 'صفحه قبلی ◀️', callback_data = 'managerlist:'..chat}
+                   {text = '↩️🌟منوی اصل🌟↩️', callback_data = 'firstmenu:'..chat},{text = '⏪🔙صفحه قبلی🔙⏪', callback_data = 'managerlist:'..chat}
 				}
 							}
               edit(q.inline_message_id,'`با عرض پوزش،در حال حاضر سیستم انتخابی غیرفعال میباشد.`',keyboard)
@@ -541,7 +541,7 @@ local hash = SUDO..'settings:'..chat..':'..value
 								{
                    {text = 'مشاهده مالکین', callback_data = 'showowners:'..chat},{text = 'حذف لیست مالکین', callback_data = 'removeowners:'..chat}
 				   },{
-                   {text = 'بازگشت به منوی اصلی ◀️', callback_data = 'firstmenu:'..chat},{text = 'صفحه قبلی ◀️', callback_data = 'groupinfo:'..chat}
+                   {text = '↩️🌟منوی اصل🌟↩️', callback_data = 'firstmenu:'..chat},{text = '⏪🔙صفحه قبلی🔙⏪', callback_data = 'groupinfo:'..chat}
 				}
 							}
               edit(q.inline_message_id, ''..t..'',keyboard)
@@ -552,7 +552,7 @@ local hash = SUDO..'settings:'..chat..':'..value
 		local keyboard = {}
 							keyboard.inline_keyboard = {
 								{
-                   {text = 'بازگشت به منوی اصلی ◀️', callback_data = 'firstmenu:'..chat},{text = 'صفحه قبلی ◀️', callback_data = 'ownerlist:'..chat}
+                   {text = '↩️🌟منوی اصل🌟↩️', callback_data = 'firstmenu:'..chat},{text = '⏪🔙صفحه قبلی🔙⏪', callback_data = 'ownerlist:'..chat}
 				}
 							}
               edit(q.inline_message_id,'`با عرض پوزش،در حال حاضر سیستم انتخابی غیرفعال میباشد.`',keyboard)
@@ -569,7 +569,7 @@ local hash = SUDO..'settings:'..chat..':'..value
 								{
 							{text = 'حذف قوانین', callback_data = 'removerules:'..chat}
 				   },{
-                   {text = 'بازگشت به منوی اصلی ◀️', callback_data = 'firstmenu:'..chat},{text = 'صفحه قبلی ◀️', callback_data = 'groupinfo:'..chat}
+                   {text = '↩️🌟منوی اصل🌟↩️', callback_data = 'firstmenu:'..chat},{text = '⏪🔙صفحه قبلی🔙⏪', callback_data = 'groupinfo:'..chat}
 				}
 							}
               edit(q.inline_message_id, 'قوانین گروه:\n `'..rules..'`',keyboard)
@@ -586,7 +586,7 @@ local hash = SUDO..'settings:'..chat..':'..value
 								{
 								{text = 'حذف لینک ابرگروه', callback_data = 'removegrouplink:'..chat}
 				   },{
-                   {text = 'بازگشت به منوی اصلی ◀️', callback_data = 'firstmenu:'..chat},{text = 'صفحه قبلی ◀️', callback_data = 'groupinfo:'..chat}
+                   {text = '↩️🌟منوی اصل🌟↩️', callback_data = 'firstmenu:'..chat},{text = '⏪🔙صفحه قبلی🔙⏪', callback_data = 'groupinfo:'..chat}
 				}
 							}
               edit(q.inline_message_id, '`لینک ورود به ابرگروه:`\n '..links..'',keyboard)
@@ -608,7 +608,7 @@ local hash = SUDO..'settings:'..chat..':'..value
 								{
                    {text = 'مشاهده کاربران', callback_data = 'showusers:'..chat},{text = 'حذف لیست', callback_data = 'removebanlist:'..chat}
 				   },{
-                   {text = 'بازگشت به منوی اصلی ◀️', callback_data = 'firstmenu:'..chat},{text = 'صفحه قبلی ◀️', callback_data = 'groupinfo:'..chat}
+                   {text = '↩️🌟منوی اصل🌟↩️', callback_data = 'firstmenu:'..chat},{text = '⏪🔙صفحه قبلی🔙⏪', callback_data = 'groupinfo:'..chat}
 				}
 							}
               edit(q.inline_message_id, ''..t..'',keyboard)
@@ -619,7 +619,7 @@ local hash = SUDO..'settings:'..chat..':'..value
 		local keyboard = {}
 							keyboard.inline_keyboard = {
 								{
-                   {text = 'بازگشت به منوی اصلی ◀️', callback_data = 'firstmenu:'..chat},{text = 'صفحه قبلی ◀️', callback_data = 'banlist:'..chat}
+                   {text = '↩️🌟منوی اصل🌟↩️', callback_data = 'firstmenu:'..chat},{text = '⏪🔙صفحه قبلی🔙⏪', callback_data = 'banlist:'..chat}
 				}
 							}
               edit(q.inline_message_id,'`با عرض پوزش،در حال حاضر سیستم انتخابی غیرفعال میباشد.`',keyboard)
@@ -641,7 +641,7 @@ local hash = SUDO..'settings:'..chat..':'..value
 								{
                    {text = 'مشاهده کاربران', callback_data = 'showusersmutelist:'..chat},{text = 'حذف لیست', callback_data = 'removesilentlist:'..chat}
 				   },{
-                   {text = 'بازگشت به منوی اصلی ◀️', callback_data = 'firstmenu:'..chat},{text = 'صفحه قبلی ◀️', callback_data = 'groupinfo:'..chat}
+                   {text = '↩️🌟منوی اصل🌟↩️', callback_data = 'firstmenu:'..chat},{text = '⏪🔙صفحه قبلی🔙⏪', callback_data = 'groupinfo:'..chat}
 				}
 							}
               edit(q.inline_message_id, ''..t..'',keyboard)
@@ -652,7 +652,7 @@ local hash = SUDO..'settings:'..chat..':'..value
 		local keyboard = {}
 							keyboard.inline_keyboard = {
 								{
-                   {text = 'بازگشت به منوی اصلی ◀️', callback_data = 'firstmenu:'..chat},{text = 'صفحه قبلی ◀️', callback_data = 'silentlistusers:'..chat}
+                   {text = '↩️🌟منوی اصل🌟↩️', callback_data = 'firstmenu:'..chat},{text = '⏪🔙صفحه قبلی🔙⏪', callback_data = 'silentlistusers:'..chat}
 				}
 							}
               edit(q.inline_message_id,'`با عرض پوزش،در حال حاضر سیستم انتخابی غیرفعال میباشد.`',keyboard)
@@ -673,7 +673,7 @@ local hash = SUDO..'settings:'..chat..':'..value
 								{
                    {text = 'حذف لیست', callback_data = 'removefilterword:'..chat}
 				   },{
-                   {text = 'بازگشت به منوی اصلی ◀️', callback_data = 'firstmenu:'..chat},{text = 'صفحه قبلی ◀️', callback_data = 'groupinfo:'..chat}
+                   {text = '↩️🌟منوی اصل🌟↩️', callback_data = 'firstmenu:'..chat},{text = '⏪🔙صفحه قبلی🔙⏪', callback_data = 'groupinfo:'..chat}
 				}
 							}
               edit(q.inline_message_id, ''..t..'',keyboard)
@@ -686,7 +686,7 @@ local hash = SUDO..'settings:'..chat..':'..value
 								{
 				 {text = '❌خیر', callback_data = 'bgdbdfddhdfhdyumrurmtu:'..chat},{text = '✅بله', callback_data = 'hjwebrjb53j5bjh3:'..chat}
                 },{
-                   {text = 'بازگشت به منوی اصلی ◀️', callback_data = 'firstmenu:'..chat},{text = 'صفحه قبلی ◀️', callback_data = 'managerlist:'..chat}
+                   {text = '↩️🌟منوی اصل🌟↩️', callback_data = 'firstmenu:'..chat},{text = '⏪🔙صفحه قبلی🔙⏪', callback_data = 'managerlist:'..chat}
 				}
 							}
               edit(q.inline_message_id,'هشدار!\n`با انجام این عمل لیست مدیران گروه حذف میگردد.`\n`آیا اطمیان دارید؟`',keyboard)
@@ -698,7 +698,7 @@ local hash = SUDO..'settings:'..chat..':'..value
 		local keyboard = {}
 							keyboard.inline_keyboard = {
 								{
-                   {text = 'بازگشت به منوی اصلی ◀️', callback_data = 'firstmenu:'..chat}
+                   {text = '↩️🌟منوی اصل🌟↩️', callback_data = 'firstmenu:'..chat}
 				}
 							}
               edit(q.inline_message_id,'`>لیست مدیران گروه با موفقیت بازنشانی شد.`',keyboard)
@@ -709,7 +709,7 @@ local hash = SUDO..'settings:'..chat..':'..value
 		local keyboard = {}
 							keyboard.inline_keyboard = {
 								{
-                   {text = 'بازگشت به منوی اصلی ◀️', callback_data = 'firstmenu:'..chat}
+                   {text = '↩️🌟منوی اصل🌟↩️', callback_data = 'firstmenu:'..chat}
 				}
 							}
               edit(q.inline_message_id,'`درخواست شما لغو گردید.`',keyboard)
@@ -722,7 +722,7 @@ local hash = SUDO..'settings:'..chat..':'..value
 								{
 				 {text = '❌خیر', callback_data = 'ncxvnfhfherietjbriurti:'..chat},{text = '✅بله', callback_data = 'ewwerwerwer4334b5343:'..chat}
                 },{
-                   {text = 'بازگشت به منوی اصلی ◀️', callback_data = 'firstmenu:'..chat},{text = 'صفحه قبلی ◀️', callback_data = 'ownerlist:'..chat}
+                   {text = '↩️🌟منوی اصل🌟↩️', callback_data = 'firstmenu:'..chat},{text = '⏪🔙صفحه قبلی🔙⏪', callback_data = 'ownerlist:'..chat}
 				}
 							}
               edit(q.inline_message_id,'هشدار!\n`با انجام این عمل لیست مالکین گروه حذف میگردد.`\n`آیا اطمیان دارید؟`',keyboard)
@@ -734,7 +734,7 @@ local hash = SUDO..'settings:'..chat..':'..value
 		local keyboard = {}
 							keyboard.inline_keyboard = {
 								{
-                   {text = 'بازگشت به منوی اصلی ◀️', callback_data = 'firstmenu:'..chat}
+                   {text = '↩️🌟منوی اصل🌟↩️', callback_data = 'firstmenu:'..chat}
 				}
 							}
               edit(q.inline_message_id,'`>لیست مالکین گروه با موفقیت بازنشانی گردید.`',keyboard)
@@ -745,7 +745,7 @@ local hash = SUDO..'settings:'..chat..':'..value
 		local keyboard = {}
 							keyboard.inline_keyboard = {
 								{
-                   {text = 'بازگشت به منوی اصلی ◀️', callback_data = 'firstmenu:'..chat}
+                   {text = '↩️🌟منوی اصل🌟↩️', callback_data = 'firstmenu:'..chat}
 				}
 							}
               edit(q.inline_message_id,'`درخواست شما لغو گردید.`',keyboard) 
@@ -758,7 +758,7 @@ local hash = SUDO..'settings:'..chat..':'..value
 								{
 				 {text = '❌خیر', callback_data = 'as12310fklfkmgfvm:'..chat},{text = '✅بله', callback_data = '3kj5g34ky6g34uy:'..chat}
                 },{
-                   {text = 'بازگشت به منوی اصلی ◀️', callback_data = 'firstmenu:'..chat},{text = 'صفحه قبلی ◀️', callback_data = 'showrules:'..chat}
+                   {text = '↩️🌟منوی اصل🌟↩️', callback_data = 'firstmenu:'..chat},{text = '⏪🔙صفحه قبلی🔙⏪', callback_data = 'showrules:'..chat}
 				}
 							}
               edit(q.inline_message_id,'هشدار!\n`با انجام این عمل متن قوانین تنظیم شده گروه حذف میگردد.`\n`آیا اطمیان دارید؟`',keyboard)
@@ -770,7 +770,7 @@ local hash = SUDO..'settings:'..chat..':'..value
 		local keyboard = {}
 							keyboard.inline_keyboard = {
 								{
-                   {text = 'بازگشت به منوی اصلی ◀️', callback_data = 'firstmenu:'..chat}
+                   {text = '↩️🌟منوی اصل🌟↩️', callback_data = 'firstmenu:'..chat}
 				}
 							}
               edit(q.inline_message_id,'`>قوانین گروه با موفقیت بازنشانی گردید.`',keyboard)
@@ -781,7 +781,7 @@ local hash = SUDO..'settings:'..chat..':'..value
 		local keyboard = {}
 							keyboard.inline_keyboard = {
 								{
-                   {text = 'بازگشت به منوی اصلی ◀️', callback_data = 'firstmenu:'..chat}
+                   {text = '↩️🌟منوی اصل🌟↩️', callback_data = 'firstmenu:'..chat}
 				}
 							}
               edit(q.inline_message_id,'`درخواست شما لغو گردید.`',keyboard) 
@@ -793,7 +793,7 @@ local hash = SUDO..'settings:'..chat..':'..value
 		local keyboard = {}
 							keyboard.inline_keyboard = {
 								{
-                   {text = 'بازگشت به منوی اصلی ◀️', callback_data = 'firstmenu:'..chat},{text = 'صفحه قبلی ◀️', callback_data = 'linkgroup:'..chat}
+                   {text = '↩️🌟منوی اصل🌟↩️', callback_data = 'firstmenu:'..chat},{text = '⏪🔙صفحه قبلی🔙⏪', callback_data = 'linkgroup:'..chat}
 				}
 							}
               edit(q.inline_message_id,'`>لینک ثبت شده با موفقیت بازنشانی گردید.`',keyboard)
@@ -806,7 +806,7 @@ local hash = SUDO..'settings:'..chat..':'..value
 								{
 				 {text = '❌خیر', callback_data = 'sudfewbhwebr9983243:'..chat},{text = '✅بله', callback_data = 'erwetrrefgfhfdhretre:'..chat}
                 },{
-                   {text = 'بازگشت به منوی اصلی ◀️', callback_data = 'firstmenu:'..chat},{text = 'صفحه قبلی ◀️', callback_data = 'banlist:'..chat}
+                   {text = '↩️🌟منوی اصل🌟↩️', callback_data = 'firstmenu:'..chat},{text = 'صفحه قبلی ◀️', callback_data = 'banlist:'..chat}
 				}
 							}
               edit(q.inline_message_id,'هشدار!\n`با انجام این عمل لیست کاربران مسدود شده از گروه حذف میگردد.`\n`آیا اطمیان دارید؟`',keyboard)
@@ -818,7 +818,7 @@ local hash = SUDO..'settings:'..chat..':'..value
 		local keyboard = {}
 							keyboard.inline_keyboard = {
 								{
-                   {text = 'بازگشت به منوی اصلی ◀️', callback_data = 'firstmenu:'..chat}
+                   {text = '↩️🌟منوی اصل🌟↩️', callback_data = 'firstmenu:'..chat}
 				}
 							}
               edit(q.inline_message_id,'`>لیست کاربران مسدود شده از گروه با موفقیت بازنشانی گردید.`',keyboard)
@@ -829,7 +829,7 @@ local hash = SUDO..'settings:'..chat..':'..value
 		local keyboard = {}
 							keyboard.inline_keyboard = {
 								{
-                   {text = 'بازگشت به منوی اصلی ◀️', callback_data = 'firstmenu:'..chat}
+                   {text = '↩️🌟منوی اصل🌟↩️', callback_data = 'firstmenu:'..chat}
 				}
 							}
               edit(q.inline_message_id,'`درخواست شما لغو گردید.`',keyboard) 
@@ -842,7 +842,7 @@ local hash = SUDO..'settings:'..chat..':'..value
 								{
 				 {text = '❌خیر', callback_data = 'sadopqwejjbkvw90892:'..chat},{text = '✅بله', callback_data = 'ncnvdifeqrhbksdgfid47:'..chat}
                 },{
-                   {text = 'بازگشت به منوی اصلی ◀️', callback_data = 'firstmenu:'..chat},{text = 'صفحه قبلی ◀️', callback_data = 'silentlistusers:'..chat}
+                   {text = '↩️🌟منوی اصل🌟↩️', callback_data = 'firstmenu:'..chat},{text = '⏪🔙صفحه قبلی🔙⏪', callback_data = 'silentlistusers:'..chat}
 				}
 							}
               edit(q.inline_message_id,'هشدار!\n`با انجام این عمل لیست کاربران حالت سکوت گروه حذف میگردد.`\n`آیا اطمیان دارید؟`',keyboard)
@@ -854,7 +854,7 @@ local hash = SUDO..'settings:'..chat..':'..value
 		local keyboard = {}
 							keyboard.inline_keyboard = {
 								{
-                   {text = 'بازگشت به منوی اصلی ◀️', callback_data = 'firstmenu:'..chat}
+                   {text = '↩️🌟منوی اصل🌟↩️', callback_data = 'firstmenu:'..chat}
 				}
 							}
               edit(q.inline_message_id,'`>لیست افراد کاربران لیست سکوت با موفقیت حذف گردید.`',keyboard)
@@ -865,7 +865,7 @@ local hash = SUDO..'settings:'..chat..':'..value
 		local keyboard = {}
 							keyboard.inline_keyboard = {
 								{
-                   {text = 'بازگشت به منوی اصلی ◀️', callback_data = 'firstmenu:'..chat}
+                   {text = '↩️🌟منوی اصل🌟↩️', callback_data = 'firstmenu:'..chat}
 				}
 							}
               edit(q.inline_message_id,'`درخواست شما لغو گردید.`',keyboard) 
@@ -878,7 +878,7 @@ local hash = SUDO..'settings:'..chat..':'..value
 								{
 				 {text = '❌خیر', callback_data = 'ncxvbcusxsokd9374uid:'..chat},{text = '✅بله', callback_data = 'erewigfuwebiebfjdskfbdsugf:'..chat}
                 },{
-                   {text = 'بازگشت به منوی اصلی ◀️', callback_data = 'firstmenu:'..chat},{text = 'صفحه قبلی ◀️', callback_data = 'filterlistword:'..chat}
+                   {text = '↩️🌟منوی اصل🌟↩️', callback_data = 'firstmenu:'..chat},{text = '⏪🔙صفحه قبلی🔙⏪', callback_data = 'filterlistword:'..chat}
 				}
 							}
               edit(q.inline_message_id,'هشدار!\n`با انجام این عمل لیست تمامی کلمات فیلترشده گروه حذف میگردد.`\n`آیا اطمیان دارید؟`',keyboard)
@@ -890,7 +890,7 @@ local hash = SUDO..'settings:'..chat..':'..value
 		local keyboard = {}
 							keyboard.inline_keyboard = {
 								{
-                   {text = 'بازگشت به منوی اصلی ◀️', callback_data = 'firstmenu:'..chat}
+                   {text = '↩️🌟منوی اصل🌟↩️', callback_data = 'firstmenu:'..chat}
 				}
 							}
               edit(q.inline_message_id,'`>تمامی کلمات فیلتر شده با موفقیت حذف گردیدند.`',keyboard)
@@ -901,7 +901,7 @@ local hash = SUDO..'settings:'..chat..':'..value
 		local keyboard = {}
 							keyboard.inline_keyboard = {
 								{
-                   {text = 'بازگشت به منوی اصلی ◀️', callback_data = 'firstmenu:'..chat}
+                   {text = '↩️🌟منوی اصل🌟↩️', callback_data = 'firstmenu:'..chat}
 				}
 							}
               edit(q.inline_message_id,'`درخواست شما لغو گردید.`',keyboard) 
@@ -919,7 +919,7 @@ local hash = SUDO..'settings:'..chat..':'..value
                 },{
 				{text = 'مدیریت حرفه ای گروه', callback_data = 'herfeiimanage:'..chat}
                 },{
-                   {text = 'بازگشت به منوی اصلی ◀️', callback_data = 'firstmenu:'..chat},{text = 'صفحه قبلی ◀️', callback_data = 'fahedsale:'..chat}
+                   {text = '↩️🌟منوی اصل🌟↩️', callback_data = 'firstmenu:'..chat},{text = '⏪🔙صفحه قبلی🔙⏪', callback_data = 'fahedsale:'..chat}
 				}
 							}
               edit(q.inline_message_id,'`در این بخش شما میتوانید نسبت به خرید سرویس/طرح جدید اقدام کنید.`\n`سرویس مورد نظر خود را انتخاب کنید:`',keyboard)
@@ -932,7 +932,7 @@ local hash = SUDO..'settings:'..chat..':'..value
 								{
 								{text = 'طرح ها و تعرفه ها', callback_data = 'tarhvatarefe:'..chat},{text = 'بررسی قابلیت ها', callback_data = 'baresiqabeliyat:'..chat}
                 },{
-                   {text = 'بازگشت به منوی اصلی ◀️', callback_data = 'firstmenu:'..chat},{text = 'صفحه قبلی ◀️', callback_data = 'salegroup:'..chat}
+                   {text = '↩️🌟منوی اصل🌟↩️', callback_data = 'firstmenu:'..chat},{text = '⏪🔙صفحه قبلی🔙⏪', callback_data = 'salegroup:'..chat}
 				}
 							}
               edit(q.inline_message_id,'`>سرویس انتخابی شما: [مدیریت معمولی گروه].`\n`از منوی زیر انتخاب کنید:`',keyboard) 
@@ -946,7 +946,7 @@ local hash = SUDO..'settings:'..chat..':'..value
 								{
 								{text = 'طرح ها و تعرفه ها', callback_data = 'tarhpro:'..chat},{text = 'بررسی قابلیت ها', callback_data = 'pishrafteberesi:'..chat}
                 },{
-                   {text = 'بازگشت به منوی اصلی ◀️', callback_data = 'firstmenu:'..chat},{text = 'صفحه قبلی ◀️', callback_data = 'salegroup:'..chat}
+                   {text = '↩️🌟منوی اصل🌟↩️', callback_data = 'firstmenu:'..chat},{text = '⏪🔙صفحه قبلی🔙⏪', callback_data = 'salegroup:'..chat}
 				}
 							}
               edit(q.inline_message_id,'`>سرویس انتخابی شما: [مدیریت پیشرفته گروه].`\n`از منوی زیر انتخاب کنید:`',keyboard)
@@ -959,7 +959,7 @@ local hash = SUDO..'settings:'..chat..':'..value
 								{
 								{text = 'طرح ها و تعرفه ها', callback_data = 'herfetarh:'..chat},{text = 'بررسی قابلیت ها', callback_data = 'qabeliyarherfeii:'..chat}
                 },{
-                   {text = 'بازگشت به منوی اصلی ◀️', callback_data = 'firstmenu:'..chat},{text = 'صفحه قبلی ◀️', callback_data = 'salegroup:'..chat}
+                   {text = '↩️🌟منوی اصل🌟↩️', callback_data = 'firstmenu:'..chat},{text = '⏪🔙صفحه قبلی🔙⏪', callback_data = 'salegroup:'..chat}
 				}
 							}
               edit(q.inline_message_id,'`>سرویس انتخابی شما: [مدیریت حرفه ای گروه].`\n`از منوی زیر انتخاب کنید:`',keyboard) 
@@ -970,10 +970,10 @@ local hash = SUDO..'settings:'..chat..':'..value
 		local keyboard = {}
 							keyboard.inline_keyboard = {
 								{
-                   {text = 'بازگشت به منوی اصلی ◀️', callback_data = 'firstmenu:'..chat},{text = 'صفحه قبلی ◀️', callback_data = 'promanage:'..chat}
+                   {text = '↩️🌟منوی اصل🌟↩️', callback_data = 'firstmenu:'..chat},{text = '⏪🔙صفحه قبلی🔙⏪', callback_data = 'promanage:'..chat}
 				}
 							}
-              edit(q.inline_message_id,'`قیمت طرح های مربوط به این ربات:`\n`ماهانه(30 الی 31 روز کامل)` >  *14900*\n`سالانه(365 روز کامل)` > *34000*\n`دائمی/مادام العمر(نامحدود روز)` > *45000*\n`تمامی قیمت ها به` تومان `میباشد.`',keyboard)
+              edit(q.inline_message_id,'`قیمت طرح های مربوط به این ربات:`\n`ماهانه(30 الی 31 روز کامل)` >  *9000*\n`سالانه(365 روز کامل)` > *9000*\n`شش ماهه(180 روز)` > *45000*\n`تمامی قیمت ها به` تومان `میباشد.`',keyboard)
             end
 			------------@@@@@@@@@@@@@@@@@@@@@@@@@@------------------
 			if q.data:match('tarhvatarefe') then
@@ -981,10 +981,10 @@ local hash = SUDO..'settings:'..chat..':'..value
 		local keyboard = {}
 							keyboard.inline_keyboard = {
 								{
-                   {text = 'بازگشت به منوی اصلی ◀️', callback_data = 'firstmenu:'..chat},{text = 'صفحه قبلی ◀️', callback_data = 'normalmanage:'..chat}
+                   {text = '↩️🌟منوی اصل🌟↩️', callback_data = 'firstmenu:'..chat},{text = '⏪🔙صفحه قبلی🔙⏪', callback_data = 'normalmanage:'..chat}
 				}
 							}
-              edit(q.inline_message_id,'`قیمت طرح های مربوط به این ربات:`\n`ماهانه(30 الی 31 روز کامل)` >  *9900*\n`سالانه(365 روز کامل)` > *23000*\n`دائمی/مادام العمر(نامحدود روز)` > *35000*\n`تمامی قیمت ها به` تومان `میباشد.`',keyboard)
+              edit(q.inline_message_id,'`قیمت طرح های مربوط به این ربات:`\n`ماهانه(30 الی 31 روز کامل)` >  *7000*\n`سالانه(365 روز کامل)` > *65000*\n`شش ماهه  )` > *35000*\n`تمامی قیمت ها به` تومان `میباشد.`',keyboard)
             end
 			------------@@@@@@@@@@@@@@@@@@@@@@@@@@------------------
 			if q.data:match('herfetarh') then
@@ -992,10 +992,10 @@ local hash = SUDO..'settings:'..chat..':'..value
 		local keyboard = {}
 							keyboard.inline_keyboard = {
 								{
-                   {text = 'بازگشت به منوی اصلی ◀️', callback_data = 'firstmenu:'..chat},{text = 'صفحه قبلی ◀️', callback_data = 'herfeiimanage:'..chat}
+                   {text = '↩️🌟منوی اصل🌟↩️', callback_data = 'firstmenu:'..chat},{text = '⏪🔙صفحه قبلی🔙⏪', callback_data = 'herfeiimanage:'..chat}
 				}
 							}
-              edit(q.inline_message_id,'`قیمت طرح های مربوط به این ربات:`\n`ماهانه(30 الی 31 روز کامل)` >  *16900*\n`سالانه(365 روز کامل)` > *37500*\n`دائمی/مادام العمر(نامحدود روز)` > *49000*\n`تمامی قیمت ها به` تومان `میباشد.`',keyboard)
+              edit(q.inline_message_id,'`قیمت طرح های مربوط به این ربات:`\n`ماهانه(30 الی 31 روز کامل)` >  *12000*\n`سالانه(365 روز کامل)` > *120000*\n`شش ماهه )` > *65000*\n`تمامی قیمت ها به` تومان `میباشد.`',keyboard)
             end
 							----------------------------------بررسی قابلیت ها--------------------------------------
 							if q.data:match('pishrafteberesi') then
@@ -1003,7 +1003,7 @@ local hash = SUDO..'settings:'..chat..':'..value
 		local keyboard = {}
 							keyboard.inline_keyboard = {
 								{
-                   {text = 'بازگشت به منوی اصلی ◀️', callback_data = 'firstmenu:'..chat},{text = 'صفحه قبلی ◀️', callback_data = 'promanage:'..chat}
+                   {text = '↩️🌟منوی اصل🌟↩️', callback_data = 'firstmenu:'..chat},{text = '⏪🔙صفحه قبلی🔙⏪', callback_data = 'promanage:'..chat}
 				}
 							}
               edit(q.inline_message_id,'`بررسی قابلیت های این سرویس:`\nشرح قابلیت ها: (سرعت بالا در انجام دستورات و موارد تنظیم شده برای گروه خود--دقت در انجام دستورات داده شده: 100%--رابط کاربری فوق العاده و دارای قابلیت و متود های جدید تلگرام(توضیحات بیشتر در پست های بالا موجود میباشد.))',keyboard)
@@ -1014,7 +1014,7 @@ local hash = SUDO..'settings:'..chat..':'..value
 		local keyboard = {}
 							keyboard.inline_keyboard = {
 								{
-                   {text = 'بازگشت به منوی اصلی ◀️', callback_data = 'firstmenu:'..chat},{text = 'صفحه قبلی ◀️', callback_data = 'normalmanage:'..chat}
+                   {text = '↩️🌟منوی اصل🌟↩️', callback_data = 'firstmenu:'..chat},{text = '⏪🔙صفحه قبلی🔙⏪', callback_data = 'normalmanage:'..chat}
 				}
 							}
               edit(q.inline_message_id,'`بررسی قابلیت های این سرویس:`\nشرح قابلیت ها: (سرعت پایین تر نسبت به ربات بالا(به دلیل زیاد شدن آمار گروه های فعال ربات--عمر ربات: 26 ماه)--دقت در انجام دستورات داده شده: 96%--رابط کاربری فوق العاده و دارای قابلیت های پیشرفته و نسبتا جدید)',keyboard)
@@ -1025,7 +1025,7 @@ local hash = SUDO..'settings:'..chat..':'..value
 		local keyboard = {}
 							keyboard.inline_keyboard = {
 								{
-                   {text = 'بازگشت به منوی اصلی ◀️', callback_data = 'firstmenu:'..chat},{text = 'صفحه قبلی ◀️', callback_data = 'herfeiimanage:'..chat}
+                   {text = '↩️🌟منوی اصل🌟↩️', callback_data = 'firstmenu:'..chat},{text = '⏪🔙صفحه قبلی🔙⏪', callback_data = 'herfeiimanage:'..chat}
 				}
 							}
               edit(q.inline_message_id,'`بررسی قابلیت های این سرویس:`\nشرح قابلیت ها: (سرعت بالا در انجام دستورات و موارد تنظیم شده برای گروه خود--دقت در انجام دستورات داده شده: 100%--رابط کاربری فوق العاده و دارای قابلیت و متود های جدید تلگرام(توضیحات بیشتر در پست های بالا موجود + مدیریت حرفه ای(دارای پنل مدیریتی خودکار و بدون نیاز به ارسال دستور!)',keyboard)
@@ -1092,31 +1092,31 @@ local function getsettings(value)
               local keyboard = {}
             	keyboard.inline_keyboard = {
 	            	{
-                 {text=getsettings('photo'),callback_data=chat..':lock photo'}, {text = 'فیلتر تصاویر', callback_data = chat..'_photo'}
+                 {text=getsettings('photo'),callback_data=chat..':lock photo'}, {text = '📷فیلتر تصاویر📷', callback_data = chat..'_photo'}
                 },{
-                 {text=getsettings('video'),callback_data=chat..':lock video'}, {text = 'فیلتر ویدئو', callback_data = chat..'_video'}
+                 {text=getsettings('video'),callback_data=chat..':lock video'}, {text = '📹فیلترویدیو📹', callback_data = chat..'_video'}
                 },{
-                 {text=getsettings('audio'),callback_data=chat..':lock audio'}, {text = 'فیلتر صدا', callback_data = chat..'_audio'}
+                 {text=getsettings('audio'),callback_data=chat..':lock audio'}, {text = '🎤فیلترویس🎤', callback_data = chat..'_audio'}
                 },{
-                 {text=getsettings('gif'),callback_data=chat..':lock gif'}, {text = 'فیلتر تصاویر متحرک', callback_data = chat..'_gif'}
+                 {text=getsettings('gif'),callback_data=chat..':lock gif'}, {text = '🎁قفل گیف🎁', callback_data = chat..'_gif'}
                 },{
-                 {text=getsettings('music'),callback_data=chat..':lock music'}, {text = 'فیلتر آهنگ', callback_data = chat..'_music'}
+                 {text=getsettings('music'),callback_data=chat..':lock music'}, {text = '🎵فیلترآهنگ🎵', callback_data = chat..'_music'}
                 },{
-                  {text=getsettings('file'),callback_data=chat..':lock file'},{text = 'فیلتر فایل', callback_data = chat..'_file'}
+                  {text=getsettings('file'),callback_data=chat..':lock file'},{text = '📘فیلترفایل📘', callback_data = chat..'_file'}
                 },{
-                  {text=getsettings('link'),callback_data=chat..':lock link'},{text = 'قفل ارسال لینک', callback_data = chat..'_link'}
+                  {text=getsettings('link'),callback_data=chat..':lock link'},{text = '🔗قفل لینک🔗', callback_data = chat..'_link'}
                 },{
-                 {text=getsettings('sticker'),callback_data=chat..':lock sticker'}, {text = 'فیلتر برچسب', callback_data = chat..'_sticker'}
+                 {text=getsettings('sticker'),callback_data=chat..':lock sticker'}, {text = '🎎قفل استیکر🎎', callback_data = chat..'_sticker'}
                 },{
-                  {text=getsettings('text'),callback_data=chat..':lock text'},{text = 'فیلتر متن', callback_data = chat..'_text'}
+                  {text=getsettings('text'),callback_data=chat..':lock text'},{text = '📋فیلترمتن📋'', callback_data = chat..'_text'}
                 },{
-                  {text=getsettings('pin'),callback_data=chat..':lock pin'},{text = 'قفل پیغام پین شده', callback_data = chat..'_pin'}
+                  {text=getsettings('pin'),callback_data=chat..':lock pin'},{text = '🔱قفل سنجاق🔱', callback_data = chat..'_pin'}
                 },{
-                 {text=getsettings('username'),callback_data=chat..':lock username'}, {text = 'فیلتر یوزرنیم', callback_data = chat..'_username'}
+                 {text=getsettings('username'),callback_data=chat..':lock username'}, {text = '🆔قفل تگ🆔', callback_data = chat..'_username'}
                 },{
-                  {text=getsettings('contact'),callback_data=chat..':lock contact'},{text = 'فیلتر مخاطبین', callback_data = chat..'_contact'}
+                  {text=getsettings('contact'),callback_data=chat..':lock contact'},{text = '☎فیلترمخاطبین☎', callback_data = chat..'_contact'}
                 },{
-                   {text = 'بازگشت به منوی اصلی ◀️', callback_data = 'firstmenu:'..chat},{text = '▶️ صفحه بعدی', callback_data = 'next_page:'..chat}
+                   {text = '↩️🌟منوی اصل🌟↩️', callback_data = 'firstmenu:'..chat},{text = '➡️صفحه بعد➡️', callback_data = 'next_page:'..chat}
                 }
 							}
             edit(q.inline_message_id,'تنظیمات-ابرگروه(فیلترها):',keyboard)
@@ -1163,31 +1163,31 @@ local function getsettings(value)
 							local keyboard = {}
 							keyboard.inline_keyboard = {
 									{
-                 {text=getsettings('photo'),callback_data=chat..':lock photo'}, {text = 'فیلتر تصاویر', callback_data = chat..'_photo'}
+                 {text=getsettings('photo'),callback_data=chat..':lock photo'}, {text = '📷فیلتر تصاویر📷', callback_data = chat..'_photo'}
                 },{
-                 {text=getsettings('video'),callback_data=chat..':lock video'}, {text = 'فیلتر ویدئو', callback_data = chat..'_video'}
+                 {text=getsettings('video'),callback_data=chat..':lock video'}, {text = '📹فیلترویدیو📹', callback_data = chat..'_video'}
                 },{
-                 {text=getsettings('audio'),callback_data=chat..':lock audio'}, {text = 'فیلتر صدا', callback_data = chat..'_audio'}
+                 {text=getsettings('audio'),callback_data=chat..':lock audio'}, {text = '🎤فیلترویس🎤', callback_data = chat..'_audio'}
                 },{
-                 {text=getsettings('gif'),callback_data=chat..':lock gif'}, {text = 'فیلتر تصاویر متحرک', callback_data = chat..'_gif'}
+                 {text=getsettings('gif'),callback_data=chat..':lock gif'}, {text = '🎁قفل گیف🎁', callback_data = chat..'_gif'}
                 },{
-                 {text=getsettings('music'),callback_data=chat..':lock music'}, {text = 'فیلتر آهنگ', callback_data = chat..'_music'}
+                 {text=getsettings('music'),callback_data=chat..':lock music'}, {text = '🎵فیلترآهنگ🎵', callback_data = chat..'_music'}
                 },{
-                  {text=getsettings('file'),callback_data=chat..':lock file'},{text = 'فیلتر فایل', callback_data = chat..'_file'}
+                  {text=getsettings('file'),callback_data=chat..':lock file'},{text = '📘فیلترفایل📘', callback_data = chat..'_file'}
                 },{
-                  {text=getsettings('link'),callback_data=chat..':lock link'},{text = 'قفل ارسال لینک', callback_data = chat..'_link'}
+                  {text=getsettings('link'),callback_data=chat..':lock link'},{text = '🔗قفل لینک🔗', callback_data = chat..'_link'}
                 },{
-                 {text=getsettings('sticker'),callback_data=chat..':lock sticker'}, {text = 'فیلتر برچسب', callback_data = chat..'_sticker'}
+                 {text=getsettings('sticker'),callback_data=chat..':lock sticker'}, {text = '🎎قفل استیکر🎎', callback_data = chat..'_sticker'}
                 },{
-                  {text=getsettings('text'),callback_data=chat..':lock text'},{text = 'فیلتر متن', callback_data = chat..'_text'}
+                  {text=getsettings('text'),callback_data=chat..':lock text'},{text = '📋فیلترمتن📋'', callback_data = chat..'_text'}
                 },{
-                  {text=getsettings('pin'),callback_data=chat..':lock pin'},{text = 'قفل پیغام پین شده', callback_data = chat..'_pin'}
+                  {text=getsettings('pin'),callback_data=chat..':lock pin'},{text = '🔱قفل سنجاق🔱', callback_data = chat..'_pin'}
                 },{
-                 {text=getsettings('username'),callback_data=chat..':lock username'}, {text = 'فیلتر یوزرنیم', callback_data = chat..'_username'}
+                 {text=getsettings('username'),callback_data=chat..':lock username'}, {text = '🆔قفل تگ🆔', callback_data = chat..'_username'}
                 },{
-                  {text=getsettings('contact'),callback_data=chat..':lock contact'},{text = 'فیلتر مخاطبین', callback_data = chat..'_contact'}
+                  {text=getsettings('contact'),callback_data=chat..':lock contact'},{text = '☎فیلترمخاطبین☎', callback_data = chat..'_contact'}
                 },{
-                   {text = 'بازگشت به منوی اصلی ◀️', callback_data = 'firstmenu:'..chat},{text = '▶️ صفحه بعدی', callback_data = 'next_page:'..chat}
+                   {text = '↩️🌟منوی اصل🌟↩️', callback_data = 'firstmenu:'..chat},{text = '➡️صفحه بعد➡️', callback_data = 'next_page:'..chat}
                 }
 							}
               edit(q.inline_message_id,'تنظیمات-ابرگروه(بخش1):',keyboard)
@@ -1251,25 +1251,25 @@ local function getsettings(value)
          		local keyboard = {}
 							keyboard.inline_keyboard = {
 								{
-                  {text=getsettings('forward'),callback_data=chat..':lock forward'},{text = 'فیلتر فوروارد', callback_data = chat..'_forward'}
+                  {text=getsettings('forward'),callback_data=chat..':lock forward'},{text = '🚟قفل فوروارد🚟', callback_data = chat..'_forward'}
                 },{
-                  {text=getsettings('bot'),callback_data=chat..':lock bot'},{text = 'قفل ورود ربات(API)', callback_data = chat..'_bot'}
+                  {text=getsettings('bot'),callback_data=chat..':lock bot'},{text = '🎭قفل ربات🎭', callback_data = chat..'_bot'}
                 },{
-                  {text=getsettings('game'),callback_data=chat..':lock game'},{text = 'فیلتر بازی(inline)', callback_data = chat..'_game'}
+                  {text=getsettings('game'),callback_data=chat..':lock game'},{text = '🏄فیلتربازی🏄', callback_data = chat..'_game'}
                 },{
-                  {text=getsettings('persian'),callback_data=chat..':lock persian'},{text = 'فیلتر گفتمان فارسی', callback_data = chat..'_persian'}
+                  {text=getsettings('persian'),callback_data=chat..':lock persian'},{text = '♋فیلترفارسی♋', callback_data = chat..'_persian'}
                 },{
-                  {text=getsettings('english'),callback_data=chat..':lock english'},{text = 'فیلتر گفتمان انگلیسی', callback_data = chat..'_english'}
+                  {text=getsettings('english'),callback_data=chat..':lock english'},{text = '🆎فیلترانگلیسی🆎', callback_data = chat..'_english'}
                 },{
-                  {text=getsettings('keyboard'),callback_data=chat..':lock keyboard'},{text = 'قفل دکمه شیشه ای', callback_data = chat..'_keyboard'}
+                  {text=getsettings('keyboard'),callback_data=chat..':lock keyboard'},{text = '🎲فیلتراینلاین🎲', callback_data = chat..'_keyboard'}
                 },{
-                  {text=getsettings('tgservice'),callback_data=chat..':lock tgservice'},{text = 'فیلتر پیغام ورود،خروج', callback_data = chat..'_tgservice'}
+                  {text=getsettings('tgservice'),callback_data=chat..':lock tgservice'},{text = '🎬قفل پیام ورود🎬', callback_data = chat..'_tgservice'}
                 },{
-                 {text=getsettings('muteall'),callback_data=chat..':lock muteall'}, {text = 'فیلتر تمامی گفتگو ها', callback_data = chat..'_muteall'}
+                 {text=getsettings('muteall'),callback_data=chat..':lock muteall'}, {text = '⛔️قفل همه چیز⛔️', callback_data = chat..'_muteall'}
                 },{
-                 {text=getsettings('welcome'),callback_data=chat..':lock welcome'}, {text = 'پیغام خودش آمدگویی', callback_data = chat..'_welcome'}
+                 {text=getsettings('welcome'),callback_data=chat..':lock welcome'}, {text = '💟پیام خوشامد💟', callback_data = chat..'_welcome'}
                 },{
-                 {text=getsettings('spam'),callback_data=chat..':lock spam'}, {text = 'عملکرد قفل ارسال هرزنامه', callback_data = chat..'_spam'}
+                 {text=getsettings('spam'),callback_data=chat..':lock spam'}, {text = '🚫عملکرد اسپم🚫', callback_data = chat..'_spam'}
                 },{
                  {text = 'حداکثر زمان ارسال هرزنامه: '..tostring(TIME_MAX)..' ثانیه', callback_data = chat..'_TIME_MAX'}
                 },{
@@ -1281,12 +1281,12 @@ local function getsettings(value)
 									},{
                   {text='تاریخ انقضاء گروه: '..getsettings('charge'),callback_data=chat..'_charge'}
                 },{
-                  {text = 'صفحه قبلی ◀️', callback_data = 'left_page:'..chat},{text = '▶️ صفحه بعدی', callback_data = 'next_pagee:'..chat}
+                  {text = '⏪🔙صفحه قبلی🔙⏪', callback_data = 'left_page:'..chat},{text = '➡️صفحه بعد➡️', callback_data = 'next_pagee:'..chat}
                 }
 							}
               edit(q.inline_message_id,'تنظیمات-ابرگروه:',keyboard)
             end
-            else Canswer(q.id,'شما مالک/مدیر گروه نیستید و امکان تغییر تنظیمات را ندارید!\n>برای خرید ربات به کانال زیر مراجعه فرمایید:\n@BanG_TeaM',true)
+            else Canswer(q.id,'شما مالک/مدیر گروه نیستید و امکان تغییر تنظیمات را ندارید!\n>برای خرید ربات به کانال زیر مراجعه فرمایید:\n@Nice20Team',true)
 						end
 						end
           if msg.message and msg.message.date > (os.time() - 5) and msg.message.text then
